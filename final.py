@@ -10,14 +10,14 @@ app.config['MONGODB_SETTINGS'] = {
 }
 db = MongoEngine()
 db.init_app(app)
- 
+#establishing connection to database 
 class User(db.Document):
     name = db.StringField()
     email = db.StringField()
     def to_json(self):
         return {"name": self.name,
                 "email": self.email}
- 
+#row name 
 @app.route('/')
 def query_records():
     name = 'Satyamgupta'
